@@ -9,14 +9,14 @@ const createInventoryController = async (req, res) => {
     //validation
     const user = await userModel.findOne({ email });
     if (!user) {
-      throw new Error("User Not Found");
+       throw new Error("User Not Found");
     }
-    if (inventoryType === "in" && user.role !== "donar") {
-      throw new Error("Not a donar account");
-    }
-    if (inventoryType === "out" && user.role !== "hospital") {
-      throw new Error("Not a hospital");
-    }
+    // if (inventoryType === "in" && user.role !== "donar") {
+    //   throw new Error("Not a donar account");
+    // }
+    // if (inventoryType === "out" && user.role !== "hospital") {
+    //   throw new Error("Not a hospital");
+    // }
     
     if (req.body.inventoryType == "out") {
       const requestedBloodGroup = req.body.bloodGroup;
